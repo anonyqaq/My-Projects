@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
+    <style>
+        .acount {
+            border: 1px solid black;
+            height: 350px;
+            width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 70px;
+            padding: 20px;
+        }
+
+        .acount h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="acount">
+    <h2>用户登录</h2>
+    <form>
+        <div class="form-group">
+            <label>用户名</label>
+            <input type="text" class="form-control" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label>密码</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+
+        <button type="submit" class="btn btn-primary">登录</button>
+    </form>
+</div>
+<script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-3.4.1/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

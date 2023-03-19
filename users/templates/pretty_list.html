@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="container">
+        <div style="margin-bottom: 10px" class="clearfix">
+            <a class="btn btn-primary" href="/pretty_add/">新建靓号</a>
+            <div class="col-lg-6" style="float: right;width: 300px">
+                <form method="get">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </button>
+                            </span>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">靓号列表</div>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>号码</th>
+                        <th>价格</th>
+                        <th>级别</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for itme in queryset %}
+                        <tr>
+                            <td>{{ itme.id }}</td>
+                            <td>{{ itme.moblie }}</td>
+                            <td>{{ itme.price }}</td>
+                            <td>{{ itme.get_level_display }}</td>
+                            <td>{{ itme.get_status_display }}</td>
+                            <td>
+                                <a class="btn btn-info" href="/{{ itme.id }}/pretty_re/">编辑</a>
+                                <a class="btn btn-danger" href="/{{ itme.id }}/pretty_delete/">删除</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <ul class="pagination">
+           {{ page_string }}
+        </ul>
+    </div>
+{% endblock %}

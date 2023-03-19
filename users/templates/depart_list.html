@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <div style="margin-bottom: 10px">
+            <a class="btn btn-primary" href="/depart_add/">新建部门</a>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">部门列表</div>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>名称</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for itme in Depart_list %}
+                        <tr>
+                            <th>{{ itme.id }}</th>
+                            <td>{{ itme.title }}</td>
+                            <td>
+                                <a class="btn btn-info" href="/{{ itme.id }}/depart_re/">编辑</a>
+                                <a class="btn btn-danger" href="/depart_delete/?nid={{ itme.id }}">删除</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

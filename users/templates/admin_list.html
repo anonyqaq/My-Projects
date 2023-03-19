@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="container">
+        <div style="margin-bottom: 10px">
+            <a class="btn btn-primary" href="/admin_add/">新建管理员</a>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">管理员列表</div>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>姓名</th>
+                        <th>密码</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for itme in admin_list %}
+                        <tr>
+                            <th>{{ itme.id }}</th>
+                            <td>{{ itme.username }}</td>
+                            <td>{{ itme.upassword }}</td>
+                            <td>
+                                <a class="btn btn-info" href="/{{ itme.id }}/admin_re/">编辑</a>
+                                <a class="btn btn-danger" href="/{{ itme.id }}/admin_delete/">删除</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
